@@ -1,0 +1,57 @@
+{
+  "Footer": {
+    "rights": "Tous droits réservés."
+  },
+  "Common": {
+    "backToHome": "Retour à l'accueil",
+    "redirectInSeconds": "Redirection dans {seconds}s",
+    "tryAgain": "Réessayer",
+    "loading": "Chargement en cours...",
+    "noContent": "Aucun contenu disponible.",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "NotFound": {
+    "title": "404",
+    "message": "La page que vous recherchez est introuvable.",
+    "back": "Retour à l'accueil"
+  },
+  "Splash": {
+    "enter": "Entrer"
+  },
+  "Calculator": {
+    "calculate": "Calculer",
+    "copy": "Copier les résultats",
+    "copied": "Copié !",
+    "height": "Taille",
+    "weight": "Poids",
+    "age": "Âge",
+    "sex": "Sexe",
+    "male": "Homme",
+    "female": "Femme",
+    "activity": "Niveau d'activité",
+    "goal": "Objectif",
+    "goalLose": "Perdre du poids",
+    "goalMaintain": "Maintenir",
+    "goalGain": "Prendre du muscle",
+    "bmi": "IMC",
+    "tdee": "TDEE",
+    "target": "Calories cibles",
+    "cm": "cm",
+    "kg": "kg",
+    "years": "ans",
+    "kcal": "kcal/jour"
+  },
+  "ContactForm": {
+    "sendMessage": "Envoyer le message",
+    "expectationLine": "Nous vous répondrons dans les meilleurs délais.",
+    "addPhone": "Ajouter un téléphone",
+    "removePhone": "Retirer",
+    "selectGoal": "Choisir une option"
+  },
+  "Accessibility": {
+    "skipToContent": "Aller au contenu"
+  },
+  "AboutBio": {
+    "aboutLabel": "À propos de VANYOU"
+  }
+}

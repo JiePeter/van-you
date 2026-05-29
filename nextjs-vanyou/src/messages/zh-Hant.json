@@ -1,0 +1,57 @@
+{
+  "Footer": {
+    "rights": "版權所有。"
+  },
+  "Common": {
+    "backToHome": "返回首頁",
+    "redirectInSeconds": "{seconds} 秒後跳轉",
+    "tryAgain": "重試",
+    "loading": "載入中...",
+    "noContent": "暫無內容。",
+    "error": "發生錯誤，請重試。"
+  },
+  "NotFound": {
+    "title": "404",
+    "message": "您訪問的頁面不存在。",
+    "back": "返回首頁"
+  },
+  "Splash": {
+    "enter": "進入"
+  },
+  "Calculator": {
+    "calculate": "計算",
+    "copy": "複製結果",
+    "copied": "已複製！",
+    "height": "身高",
+    "weight": "體重",
+    "age": "年齡",
+    "sex": "性別",
+    "male": "男",
+    "female": "女",
+    "activity": "活動水平",
+    "goal": "目標",
+    "goalLose": "減脂",
+    "goalMaintain": "維持",
+    "goalGain": "增肌",
+    "bmi": "BMI",
+    "tdee": "TDEE",
+    "target": "目標熱量",
+    "cm": "公分",
+    "kg": "公斤",
+    "years": "歲",
+    "kcal": "大卡/天"
+  },
+  "ContactForm": {
+    "sendMessage": "發送訊息",
+    "expectationLine": "我們會盡快回覆您。",
+    "addPhone": "添加電話",
+    "removePhone": "收起",
+    "selectGoal": "請選擇"
+  },
+  "Accessibility": {
+    "skipToContent": "跳轉到內容"
+  },
+  "AboutBio": {
+    "aboutLabel": "關於 VANYOU"
+  }
+}
