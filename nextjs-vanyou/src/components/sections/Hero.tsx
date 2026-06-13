@@ -37,7 +37,7 @@ export default function Hero({ data, locale }: HeroProps) {
         <div className="absolute inset-0 bg-linear-to-br from-primary/20 via-base-300 to-secondary/20" />
       )}
 
-      {/* 渐变遮罩：左侧加深承载文字 + 底部过渡（参考 draft .hero::before） */}
+      {/* 渐变遮罩：左侧加深承载文字 + 底部过渡 */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#020711]/92 via-[#020711]/45 to-[#020711]/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#020711]/90 via-transparent to-transparent" />
       {/* 航运路线图形（品牌图形系统）；移动端折叠以减负聚焦内容 */}

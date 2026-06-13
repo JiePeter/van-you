@@ -42,7 +42,7 @@ interface BrandStrip {
   text?: LocalizedStr;
 }
 
-// VANYOU 服务区块：浅色 paper 底，品牌横幅 + 服务卡片网格（含 wide 变体），呼应 draft 美术
+// VANYOU 服务区块：浅色 paper 底，品牌横幅 + 服务卡片网格（含 wide 变体）
 export default function Services({ data, locale }: ServicesProps) {
   const anchorId = data.anchorId as string | undefined;
   const kicker = localizedValue(data.kicker as LocalizedStr | undefined, locale);

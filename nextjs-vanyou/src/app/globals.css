@@ -4,7 +4,7 @@
   themes: vanyou-light --default, vanyou, dark --prefersdark;
 }
 
-/* VANYOU 暗色品牌主题（取自 draft-by-codex 配色）
+/* VANYOU 暗色品牌主题（品牌配色）
    primary：电光蓝 #004dff —— 主按钮、主强调、渐变起点
    secondary：青蓝 #19bcff —— 渐变与 section 光晕、kicker 强调
    accent：同青蓝，用于分割线/列表点等次要强调
@@ -20,7 +20,7 @@
   --color-accent-content: oklch(0.18 0.04 240);
   --color-neutral: oklch(0.22 0.03 258);
   --color-neutral-content: oklch(0.93 0.02 255);
-  /* 海军蓝表面，对应 draft 的 #081426 / #030812 */
+  /* 海军蓝表面 #081426 / #030812 */
   --color-base-100: oklch(0.19 0.03 258);
   --color-base-200: oklch(0.16 0.025 258);
   --color-base-300: oklch(0.12 0.02 260);
@@ -33,7 +33,7 @@
   --color-warning-content: oklch(0.15 0.05 80);
   --color-error: oklch(0.65 0.24 25);
   --color-error-content: oklch(0.98 0.01 25);
-  /* draft 美术为直角硬边：圆角归零 */
+  /* 品牌美术为直角硬边：圆角归零 */
   --radius-selector: 0rem;
   --radius-field: 0rem;
   --radius-box: 0rem;
@@ -44,7 +44,7 @@
   --noise: 0;
 }
 
-/* VANYOU 浅色主题：全站默认（draft 的明暗交替节奏以浅色为底）。
+/* VANYOU 浅色主题：全站默认（明暗交替节奏以浅色为底）。
    深色区块（Hero / About 等）通过 data-theme="vanyou" 局部切换。 */
 @plugin "daisyui/theme" {
   name: "vanyou-light";
