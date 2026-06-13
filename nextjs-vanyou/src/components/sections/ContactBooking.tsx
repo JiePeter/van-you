@@ -75,6 +75,12 @@ export default function ContactBooking({ data, locale, formToken }: ContactBooki
   const [state, formAction, isPending] = useActionState(submitConsult, initialState);
   const [selectValues, setSelectValues] = useState<Record<string, string>>({});
 
+  // 反 spam：客户端挂载时记录时间戳（SSR 为 0 保证 hydration 一致；ISR 缓存下仍取真实浏览时间）
+  const [renderedAt, setRenderedAt] = useState(0);
+  useEffect(() => {
+    queueMicrotask(() => setRenderedAt(Date.now()));
+  }, []);
+
   // 联系区块进入视口时通知（沿用原 context；浮动按钮已移除，保留无副作用）
   useEffect(() => {
     const el = sectionRef.current;
@@ -125,6 +131,13 @@ export default function ContactBooking({ data, locale, formToken }: ContactBooki
                 <form action={formAction} className={FIELD_GROUP_SPACING}>
                   <input type="hidden" name="_locale" value={locale} />
                   {formToken && <input type="hidden" name="_ft" value={formToken} />}
+                  {/* 反 spam：渲染时间戳（挂载时客户端设置，配合 submitConsult 的提交过快判定） */}
+                  <input type="hidden" name="_t" value={renderedAt} />
+                  {/* 反 spam：honeypot —— 人类不可见、不可聚焦；机器人填了即判为 spam */}
+                  <div aria-hidden="true" className="absolute opacity-0 h-0 overflow-hidden pointer-events-none" tabIndex={-1}>
+                    <label htmlFor="vy-website">Website</label>
+                    <input type="text" id="vy-website" name="website" autoComplete="off" tabIndex={-1} />
+                  </div>
                   {fields?.map((field, index) => {
                     const label = localizedValue(field.label, locale);
                     const placeholder = localizedValue(field.placeholder, locale) ?? "";
