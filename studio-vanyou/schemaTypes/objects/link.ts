@@ -38,9 +38,16 @@ export default defineType({
     }),
     defineField({
       name: 'modalRef',
-      title: 'Modal Content',
+      title: 'Modal Content (Reference)',
       type: 'reference',
       to: [{type: 'modalContent'}],
+      hidden: ({parent}) => parent?.type !== 'modal',
+    }),
+    defineField({
+      name: 'modalBody',
+      title: 'Modal Body (Inline Text)',
+      description: '弹窗正文纯文本，空行分段（用于隐私政策 / 使用条款等简短法律文本）',
+      type: 'localizedText',
       hidden: ({parent}) => parent?.type !== 'modal',
     }),
     defineField({

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: vanyou --default, vanyou-light, dark --prefersdark;
+  themes: vanyou-light --default, vanyou, dark --prefersdark;
 }
 
 /* VANYOU 暗色品牌主题（取自 draft-by-codex 配色）
@@ -11,7 +11,6 @@
    base：深海军蓝（#030812 / #081426 / #0d1d35） */
 @plugin "daisyui/theme" {
   name: "vanyou";
-  default: true;
   color-scheme: dark;
   --color-primary: oklch(0.45 0.26 262);
   --color-primary-content: oklch(0.98 0.01 262);
@@ -45,10 +44,11 @@
   --noise: 0;
 }
 
-/* VANYOU 浅色主题：用于 Services/Contact 等 paper 区块（draft 的明暗交替节奏）。
-   通过在区块上加 data-theme="vanyou-light" 局部切换，daisyUI 表单/卡片自动转浅色。 */
+/* VANYOU 浅色主题：全站默认（draft 的明暗交替节奏以浅色为底）。
+   深色区块（Hero / About 等）通过 data-theme="vanyou" 局部切换。 */
 @plugin "daisyui/theme" {
   name: "vanyou-light";
+  default: true;
   color-scheme: light;
   --color-primary: oklch(0.45 0.26 262);
   --color-primary-content: oklch(0.98 0.01 262);
@@ -111,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-/* 楷体装饰类：英/法语下为无操作（回退标题字体），仅中文/繁中启用毛笔楷书 Ma Shan Zheng */
+/* 楷体装饰类：英/法语下为无操作（回退标题字体），仅中文/繁中启用 LXGW 霞鹜文楷（简繁通吃） */
 .font-kai {
   font-family: var(--font-heading);
 }
@@ -588,11 +588,11 @@ html[lang^="zh"] :where(.btn) {
   margin: 0.25rem auto 1.5rem auto;
 }
 
-/* 联系表单卡片：表面 + 柔和阴影，边框弱化不抢眼 */
+/* 联系表单卡片：浅色柔和表面，弱边框 + 柔阴影，避免深色硬卡（与浅色 section 一致） */
 .contact-form-card {
-  background-color: oklch(0.22 0.015 250);
-  border: 1px solid oklch(1 0 0 / 0.08);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  border: 1px solid #e3e9f2;
+  box-shadow: 0 12px 34px rgba(7, 18, 37, 0.07);
 }
 
 /* Email 行 label 与右侧「添加电话」同一行、基线对齐 */
@@ -607,7 +607,7 @@ html[lang^="zh"] :where(.btn) {
 /* “添加电话”：次要链接样式，在 label 行右侧 */
 .contact-form-add-phone {
   font-size: 0.8125rem;
-  color: oklch(0.92 0.01 240 / 0.5);
+  color: #5b6680;
   background: none;
   border: none;
   padding: 0;
@@ -618,7 +618,7 @@ html[lang^="zh"] :where(.btn) {
   transition: color 0.2s ease;
 }
 .contact-form-add-phone:hover {
-  color: oklch(0.92 0.01 240 / 0.75);
+  color: #004dff;
 }
 
 /* 联系表单 textarea：默认两行高度，需更多再拉伸 */
@@ -636,10 +636,12 @@ html[lang^="zh"] :where(.btn) {
 .select.select-bordered,
 .textarea.textarea-bordered,
 .select-trigger {
-  border: 1px solid #2a2e33;
+  border: 1px solid #d7deea;
   border-radius: 0.5rem;
   outline: none;
-  background: var(--color-base-100);
+  /* 柔和 paper 填充，避免纯白在卡面上过亮刺眼 */
+  background: #f4f7fb;
+  color: #071225;
 }
 
 /* 数字输入：移除原生 spinner 灰条，与 Select 视觉统一（同色、同圆角、无分割感） */
@@ -657,8 +659,9 @@ html[lang^="zh"] :where(.btn) {
 .textarea.textarea-bordered:focus,
 .select-trigger:focus {
   outline: none;
-  border-color: #3a3e43;
-  box-shadow: 0 0 0 1px #3a3e43;
+  border-color: #004dff;
+  box-shadow: 0 0 0 1px #004dff;
+  background: #ffffff;
 }
 .input.input-bordered:focus,
 .select.select-bordered:focus,
@@ -668,8 +671,8 @@ html[lang^="zh"] :where(.btn) {
   --tw-ring-shadow: none;
 }
 .select-dropdown {
-  border: 1px solid #2a2e33;
-  background: var(--color-base-100);
+  border: 1px solid #d7deea;
+  background: #ffffff;
 }
 
 /* 小圆点标记（列表项前缀，辅助色 #F69500） */
@@ -796,3 +799,42 @@ html[lang^="zh"] :where(.btn) {
     transition: none !important;
   }
 }
+
+/* ===== VANYOU 视觉增强：图形系统 / 视觉锚点 / 遮罩揭示 / 悬停 ===== */
+
+/* 蓝图网格纹理：浅色区块用（白底上的海军蓝细线），低对比不抢戏 */
+.blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgba(7, 18, 37, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(7, 18, 37, 0.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+/* 品牌水印（印章 / V）：纯装饰 */
+.brand-watermark {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 遮罩揭示：仅 JS 注入 .rv-ready 后隐藏（无 JS 不隐藏），命中视口由左向右擦入 */
+.rv-ready .mask-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: clip-path;
+}
+.rv-ready.section-revealed .mask-reveal {
+  clip-path: inset(0 0 0 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rv-ready .mask-reveal { clip-path: none; transition: none; }
+}
+
+/* 青色下划线悬停反馈 */
+.link-underline {
+  background-image: linear-gradient(var(--color-secondary), var(--color-secondary));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover { background-size: 100% 2px; }

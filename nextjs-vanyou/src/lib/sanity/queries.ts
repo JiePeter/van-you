@@ -10,7 +10,7 @@ export const navigationQuery = `*[_type == "navigation"][0]{
     _key, title,
     items[]{
       _key, label,
-      link{ type, url, anchor, openInNewTab, modalRef->{ title, slug, body } }
+      link{ type, url, anchor, openInNewTab, modalBody, modalRef->{ title, slug, body } }
     }
   }
 }`;

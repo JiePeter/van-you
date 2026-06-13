@@ -47,6 +47,22 @@ export default defineType({
         {
           type: 'object',
           fields: [
+            defineField({
+              name: 'icon',
+              title: 'Icon',
+              type: 'string',
+              description: 'lucide 图标键：warehouse / container / truck / crossdock / inventory / boxes',
+              options: {
+                list: [
+                  {title: 'Warehouse', value: 'warehouse'},
+                  {title: 'Container', value: 'container'},
+                  {title: 'Truck', value: 'truck'},
+                  {title: 'Cross Dock', value: 'crossdock'},
+                  {title: 'Inventory', value: 'inventory'},
+                  {title: 'Boxes', value: 'boxes'},
+                ],
+              },
+            }),
             defineField({name: 'image', title: 'Image', type: 'localizedImage'}),
             defineField({
               name: 'title',
@@ -60,6 +76,12 @@ export default defineType({
               title: 'Wide (span 2 columns)',
               type: 'boolean',
               initialValue: false,
+            }),
+            defineField({
+              name: 'sideImage',
+              title: 'Side Image (wide card right side)',
+              type: 'localizedImage',
+              description: '仅 wide 卡片使用，显示在右侧并裁切填充',
             }),
           ],
           preview: {

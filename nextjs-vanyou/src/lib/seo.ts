@@ -59,22 +59,24 @@ export function buildPageMetadata({
   };
 }
 
-// PersonalTrainer JSON-LD（替代 LocalBusiness）
-interface PersonOptions {
+// Organization JSON-LD
+interface OrganizationOptions {
   name: string;
-  jobTitle?: string;
+  description?: string;
   email?: string;
-  url?: string;
+  telephone?: string;
+  areaServed?: string;
 }
 
-export function buildPersonJsonLd(opts: PersonOptions) {
+export function buildOrganizationJsonLd(opts: OrganizationOptions) {
   return {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": "Organization",
     name: opts.name,
-    jobTitle: opts.jobTitle ?? "Warehouse & logistics services, Vancouver",
+    ...(opts.description ? { description: opts.description } : {}),
     ...(opts.email ? { email: opts.email } : {}),
-    ...(opts.url ? { url: opts.url } : {}),
+    ...(opts.telephone ? { telephone: opts.telephone } : {}),
+    ...(opts.areaServed ? { areaServed: opts.areaServed } : {}),
   };
 }
 

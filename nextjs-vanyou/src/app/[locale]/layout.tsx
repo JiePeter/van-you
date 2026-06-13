@@ -13,7 +13,6 @@ import { resolveLocalizedImage } from "@/lib/sanity/resolveImage";
 import { ContactInViewProvider } from "@/context/ContactInViewContext";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import StickyActions from "@/components/layout/StickyActions";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -60,10 +59,9 @@ export default async function LocaleLayout({
   );
   const logoRounded = (siteSettings.logoRounded as boolean) ?? false;
   const enabledLocales = (siteSettings.enabledLocales as string[] | undefined) ?? routing.locales as unknown as string[];
-  const splashQuotes = siteSettings.splashQuotes as Array<{ _key: string; text: Record<string, string> }> | undefined;
 
   return (
-    <html lang={locale} data-theme="vanyou">
+    <html lang={locale} data-theme="vanyou-light">
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         {/* 中文/繁中装饰用免费楷体 LXGW 霞鹜文楷（简繁通吃，OFL）；仅在 zh 语言加载，按字形分块下载 */}
         {locale.startsWith("zh") && (
@@ -91,7 +89,6 @@ export default async function LocaleLayout({
             />
             <main id="main-content">{children}</main>
             <Footer />
-            <StickyActions locale={locale} />
           </ContactInViewProvider>
         </NextIntlClientProvider>
       </body>

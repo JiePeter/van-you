@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Greater Vancouver service area map placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081426"/>
+      <stop offset="1" stop-color="#030812"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="480" fill="url(#bg)"/>
+
+  <!-- 细网格(呼应 blueprint-grid) -->
+  <g stroke="#19bcff" stroke-width="1" opacity="0.10">
+    <path d="M0 60 H640 M0 120 H640 M0 180 H640 M0 240 H640 M0 300 H640 M0 360 H640 M0 420 H640"/>
+    <path d="M80 0 V480 M160 0 V480 M240 0 V480 M320 0 V480 M400 0 V480 M480 0 V480 M560 0 V480"/>
+  </g>
+
+  <!-- 抽象水岸 / 区块(navy 海军色块) -->
+  <path d="M0 300 Q150 250 300 300 T640 280 V480 H0 Z" fill="#0c1c38" opacity="0.7"/>
+  <path d="M0 360 Q180 320 360 360 T640 350 V480 H0 Z" fill="#0a1730" opacity="0.8"/>
+
+  <!-- 路网(电蓝主线 + 青色支线) -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M40 200 L220 200 L300 130 L520 130" stroke="#004dff" stroke-width="4" opacity="0.85"/>
+    <path d="M120 60 L120 200 L260 330 L600 330" stroke="#19bcff" stroke-width="3" opacity="0.7"/>
+    <path d="M300 130 L300 250 L460 250 L460 420" stroke="#19bcff" stroke-width="2.5" opacity="0.55"/>
+    <path d="M40 420 L200 420 L260 330" stroke="#004dff" stroke-width="2.5" opacity="0.6"/>
+  </g>
+
+  <!-- 节点 -->
+  <g fill="#19bcff">
+    <circle cx="220" cy="200" r="4"/>
+    <circle cx="300" cy="130" r="4"/>
+    <circle cx="260" cy="330" r="4"/>
+    <circle cx="460" cy="250" r="4"/>
+  </g>
+
+  <!-- 主定位针(Vancouver) -->
+  <g transform="translate(300 210)">
+    <path d="M0 -34 C18 -34 30 -20 30 -4 C30 16 8 34 0 46 C-8 34 -30 16 -30 -4 C-30 -20 -18 -34 0 -34 Z" fill="#004dff"/>
+    <circle cx="0" cy="-4" r="11" fill="#f4f7fb"/>
+  </g>
+
+  <!-- 标签 -->
+  <text x="40" y="60" fill="#f4f7fb" font-family="'Space Grotesk', system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="0.5">Greater Vancouver</text>
+  <text x="40" y="84" fill="#19bcff" font-family="system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="2.5">SERVICE AREA · LOWER MAINLAND</text>
+</svg>

@@ -5,7 +5,7 @@ import CountdownRedirect from "@/components/CountdownRedirect";
 export default function RootNotFound() {
   const homeHref = `/${defaultLocale}`;
   return (
-    <html lang={defaultLocale} data-theme="vanyou">
+    <html lang={defaultLocale} data-theme="vanyou-light">
       <body className="flex min-h-screen items-center justify-center font-sans antialiased">
         <div className="container mx-auto max-w-2xl px-4 text-center">
           <h1 className="text-6xl font-bold text-primary">404</h1>

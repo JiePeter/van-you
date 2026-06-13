@@ -1,6 +1,6 @@
 /**
  * 将 mockData 转为 Sanity 可导入的 NDJSON，输出到仓库根目录 seed.ndjson。
- * 运行：pnpm export-ndjson（在 nextjs-fitboss 目录）
+ * 运行：npm run export-ndjson（在 nextjs-vanyou 目录）
  */
 import {mockData} from '../src/lib/sanity/mockData'
 import * as fs from 'fs'
@@ -49,7 +49,7 @@ const docs = [
 ]
 
 const cleaned = docs.map((d) => omitNullish(d)) as object[]
-// 从 nextjs-fitboss 运行时输出到仓库根目录 seed.ndjson
-const outPath = path.join(process.cwd(), process.cwd().endsWith('nextjs-fitboss') ? '..' : '.', 'seed.ndjson')
+// 输出到仓库根目录 seed.ndjson（__dirname = scripts/，向上两级即仓库根，与 cwd 无关）
+const outPath = path.join(__dirname, '..', '..', 'seed.ndjson')
 fs.writeFileSync(outPath, cleaned.map((d) => JSON.stringify(d)).join('\n'), 'utf8')
 console.log('Wrote', outPath)

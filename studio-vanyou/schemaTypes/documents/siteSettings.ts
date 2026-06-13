@@ -13,6 +13,12 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'siteShortName',
+      title: 'Site Short Name',
+      description: '导航 / 抽屉用的简称（如 VANYOU）；留空回退 "VANYOU"。长名 Site Name 留给 SEO / 页脚',
+      type: 'localizedString',
+    }),
+    defineField({
       name: 'logo',
       title: 'Logo',
       type: 'localizedImage',

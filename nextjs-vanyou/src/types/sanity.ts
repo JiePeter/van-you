@@ -50,6 +50,8 @@ export interface Link {
   internalRef?: { _ref: string; _type: "reference" };
   url?: string;
   modalRef?: { _ref: string; _type: "reference" };
+  /** type=modal 时的内联弹窗正文（纯文本，按空行分段）；用于隐私政策 / 使用条款等 */
+  modalBody?: LocalizedString;
   openInNewTab?: boolean;
   anchor?: string;
 }
@@ -95,78 +97,6 @@ export interface HeroSection extends SectionBase {
   trustLine?: LocalizedString;
 }
 
-export interface FitFilterSection extends SectionBase {
-  _type: "fitFilter";
-  title?: LocalizedString;
-  goodFitTitle?: LocalizedString;
-  notFitTitle?: LocalizedString;
-  goodFit: Array<{ _key: string; text: LocalizedString }>;
-  notFit: Array<{ _key: string; text: LocalizedString }>;
-}
-
-export interface OffersSection extends SectionBase {
-  _type: "offers";
-  title?: LocalizedString;
-  subtitle?: LocalizedString;
-  packages: Array<{
-    _key: string;
-    name: LocalizedString;
-    audience: LocalizedString;
-    bullets: Array<{ _key: string; text: LocalizedString }>;
-    cadence?: LocalizedString;
-    price: LocalizedString;
-    ctaLabel: LocalizedString;
-    ctaLink?: Link;
-    highlighted?: boolean;
-  }>;
-}
-
-export interface ProcessSection extends SectionBase {
-  _type: "process";
-  title?: LocalizedString;
-  subtitle?: LocalizedString;
-  steps: Array<{
-    _key: string;
-    name: LocalizedString;
-    input: LocalizedString;
-    output: LocalizedString;
-  }>;
-}
-
-export interface ProofSection extends SectionBase {
-  _type: "proof";
-  title?: LocalizedString;
-  items: Array<{
-    _key: string;
-    context: LocalizedString;
-    goal: LocalizedString;
-    timeframe: LocalizedString;
-    metrics: LocalizedString;
-    quote?: LocalizedString;
-    avatar?: LocalizedImage;
-    name?: LocalizedString;
-  }>;
-}
-
-export interface ActivityLevelOption {
-  _key: string;
-  value: string;
-  label: LocalizedString;
-  description: LocalizedString;
-  multiplier: number;
-}
-
-export interface BaselineCalculatorSection extends SectionBase {
-  _type: "baselineCalculator";
-  title?: LocalizedString;
-  subtitle?: LocalizedString;
-  disclaimerText: LocalizedText;
-  consentText: LocalizedText;
-  activityLevelOptions: ActivityLevelOption[];
-  formulaVersion?: string;
-  consultCTA?: LocalizedString;
-}
-
 export interface FAQSection extends SectionBase {
   _type: "faq";
   title?: LocalizedString;
@@ -202,15 +132,20 @@ export interface ServicesSection extends SectionBase {
   };
   items: Array<{
     _key: string;
+    /** lucide 图标键（warehouse/container/truck/crossdock/inventory/boxes） */
+    icon?: string;
     image?: LocalizedImage;
     title: LocalizedString;
     description: LocalizedString;
     wide?: boolean;
+    /** wide 卡片右侧补充图（如品牌图，裁切填充） */
+    sideImage?: LocalizedImage;
   }>;
 }
 
 export interface ContactBookingSection extends SectionBase {
   _type: "contactBooking";
+  kicker?: LocalizedString;
   title?: LocalizedString;
   description?: LocalizedText;
   fields: Array<{
@@ -234,7 +169,8 @@ export interface ContactBookingSection extends SectionBase {
     phones?: string[];
     areaLabel?: LocalizedString;
     areaText?: LocalizedString;
-    mapEmbedUrl?: string;
+    /** 地图位置改为纯图片占位（不内嵌 iframe / 不吃外链）；留空回退品牌占位图 */
+    mapImageUrl?: string;
     sideImage?: LocalizedImage;
     /** 页面渲染的"名片"（替代静态名片图） */
     card?: {
@@ -252,11 +188,6 @@ export interface ContactBookingSection extends SectionBase {
 export type VanyouSection =
   | HeroSection
   | ServicesSection
-  | FitFilterSection
-  | OffersSection
-  | ProcessSection
-  | ProofSection
-  | BaselineCalculatorSection
   | FAQSection
   | AboutBioSection
   | ContactBookingSection;
@@ -401,6 +332,8 @@ export type AnySection = VanyouSection
 export interface SiteSettings {
   _type: "siteSettings";
   siteName: LocalizedString;
+  /** 导航/抽屉用的可配置简称，默认 "VANYOU"；长名 siteName 留给 SEO / 页脚 */
+  siteShortName?: LocalizedString;
   logo?: LocalizedImage;
   logoRounded?: boolean;
   enabledLocales?: string[];

@@ -3,6 +3,7 @@ import { fetchSanityData } from "@/lib/sanity/fetch";
 import { navigationQuery, siteSettingsQuery } from "@/lib/sanity/queries";
 import { localizedValue } from "@/lib/sanity/localizedValue";
 import { SocialIcon } from "./SocialIcon";
+import FooterModalLink from "./FooterModalLink";
 
 interface LocalizedString {
   en?: string;
@@ -13,7 +14,7 @@ interface LocalizedString {
 
 interface MenuItem {
   label?: LocalizedString;
-  link?: { type?: string; url?: string; anchor?: string };
+  link?: { type?: string; url?: string; anchor?: string; modalBody?: LocalizedString };
 }
 
 interface FooterGroup {
@@ -74,15 +75,15 @@ export default async function Footer() {
               {legalItems.map((item, idx) => {
                 const label = localizedValue(item.label, locale);
                 if (!label) return null;
-                return (
-                  <button
-                    key={`legal-${idx}`}
-                    className="text-sm text-neutral-content/70 hover:text-neutral-content underline underline-offset-2 decoration-neutral-content/20 hover:decoration-neutral-content/60 transition-colors"
-                    type="button"
-                  >
-                    {label}
-                  </button>
-                );
+                const body = localizedValue(item.link?.modalBody, locale);
+                if (!body) {
+                  return (
+                    <span key={`legal-${idx}`} className="text-sm text-neutral-content/70">
+                      {label}
+                    </span>
+                  );
+                }
+                return <FooterModalLink key={`legal-${idx}`} label={label} body={body} />;
               })}
             </div>
           )}

@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import { fetchSanityData } from "@/lib/sanity/fetch";
 import { landingPageQuery, siteSettingsQuery } from "@/lib/sanity/queries";
 import { localizedValue } from "@/lib/sanity/localizedValue";
-import { buildPageMetadata, buildPersonJsonLd } from "@/lib/seo";
+import { buildPageMetadata, buildOrganizationJsonLd } from "@/lib/seo";
 import SectionRenderer from "@/components/sections/SectionRenderer";
 import type { Metadata } from "next";
 import type { LandingPage, SiteSettings } from "@/types/sanity";
@@ -32,15 +32,17 @@ export default async function LandingPageRoute() {
   const page = await fetchSanityData<LandingPage>(landingPageQuery, "landingPage");
   const settings = await fetchSanityData<SiteSettings>(siteSettingsQuery, "siteSettings");
 
-  const coachName =
+  const orgName =
     localizedValue(settings.siteName, locale) ??
     process.env.NEXT_PUBLIC_PROJECT_NAME ??
     "VANYOU Cargo Solutions Inc.";
 
-  const jsonLd = buildPersonJsonLd({
-    name: coachName,
-    jobTitle: process.env.NEXT_PUBLIC_PROJECT_DESCRIPTION ?? "Warehouse & logistics services, Vancouver",
+  const jsonLd = buildOrganizationJsonLd({
+    name: orgName,
+    description: process.env.NEXT_PUBLIC_PROJECT_DESCRIPTION ?? "Warehouse & logistics services, Vancouver",
     email: settings.contact?.email,
+    telephone: settings.contact?.phone,
+    areaServed: "Vancouver & the Lower Mainland",
   });
 
   // Token is set as a cookie and injected as a request header by proxy.ts.

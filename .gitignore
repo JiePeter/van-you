@@ -28,5 +28,13 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
+# Generated seed (regenerate via `npm run export-ndjson`)
+seed.ndjson
+
+# OpenNext / Cloudflare build artifacts
+nextjs-vanyou/.open-next/
+nextjs-vanyou/.wrangler/
+nextjs-vanyou/cloudflare-env.d.ts
+
 # Claude Code internal
 .claude/

@@ -95,7 +95,12 @@ export default defineType({
         }),
         defineField({name: 'areaLabel', title: 'Area Label', type: 'localizedString'}),
         defineField({name: 'areaText', title: 'Area Text', type: 'localizedText'}),
-        defineField({name: 'mapEmbedUrl', title: 'Map Embed URL (Google Maps)', type: 'url'}),
+        defineField({
+          name: 'mapImageUrl',
+          title: 'Map Image URL',
+          description: '地图位置用的静态图片路径（如 /brand/vanyou-map.png）；留空回退品牌占位图',
+          type: 'string',
+        }),
         defineField({
           name: 'card',
           title: 'Business Card (rendered)',

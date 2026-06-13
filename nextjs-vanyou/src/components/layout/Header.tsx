@@ -16,6 +16,7 @@ interface HeaderProps {
   navigation: { headerMenu?: HeaderMenuItem[] };
   siteSettings: {
     siteName?: LocalizedStr;
+    siteShortName?: LocalizedStr;
     promoBar?: {
       enabled?: boolean;
       text?: LocalizedStr;
@@ -34,6 +35,8 @@ export default function Header({ navigation, siteSettings, locale, logoUrl, logo
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const siteName = localizedValue(siteSettings.siteName, locale) ?? process.env.NEXT_PUBLIC_PROJECT_NAME ?? "VANYOU";
+  // 导航/抽屉品牌名用可配置简称，避免长名在窄屏挤占；留空回退 "VANYOU"
+  const brandName = localizedValue(siteSettings.siteShortName, locale) ?? "VANYOU";
   const headerMenu = navigation.headerMenu ?? [];
   const promoBar = siteSettings.promoBar;
 
@@ -67,7 +70,6 @@ export default function Header({ navigation, siteSettings, locale, logoUrl, logo
 
       <nav
         aria-label="Main navigation"
-        data-theme="vanyou-light"
         className="navbar navbar--compact sticky top-0 z-50 bg-base-100/90 backdrop-blur-md text-base-content border-b border-base-content/10 shadow-sm"
       >
         <div className="navbar-start">
@@ -76,14 +78,18 @@ export default function Header({ navigation, siteSettings, locale, logoUrl, logo
               <Image
                 src={logoUrl}
                 alt={logoAlt ?? siteName}
-                width={48}
-                height={72}
+                width={72}
+                height={48}
                 className={`navbar-logo-img object-contain${logoRounded ? " rounded-full" : ""}`}
               />
             ) : (
               <span className="navbar-logo-emoji font-heading font-black">V</span>
             )}
-            <span className="font-heading navbar-site-name">{siteName}</span>
+            <span className="font-heading navbar-site-name">
+              {/* 移动端用简称避免挤占，桌面端保持原全名 */}
+              <span className="md:hidden">{brandName}</span>
+              <span className="hidden md:inline">{siteName}</span>
+            </span>
           </Link>
         </div>
 
@@ -149,14 +155,13 @@ export default function Header({ navigation, siteSettings, locale, logoUrl, logo
 
         {/* 抽屉面板：右侧滑入 */}
         <aside
-          data-theme="vanyou-light"
           className={`absolute right-0 top-0 h-full w-64 max-w-[75vw] bg-base-100 text-base-content shadow-2xl flex flex-col transition-transform duration-300 ease-out ${
             drawerOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           {/* 抽屉头部 */}
           <div className="flex items-center justify-between px-5 h-16 border-b border-base-content/10 shrink-0">
-            <span className="font-heading font-semibold text-lg tracking-tight">{siteName}</span>
+            <span className="font-heading font-semibold text-lg tracking-tight">{brandName}</span>
             <button
               onClick={closeDrawer}
               className="btn btn-ghost btn-sm btn-circle"

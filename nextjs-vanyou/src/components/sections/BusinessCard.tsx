@@ -15,7 +15,7 @@ interface BusinessCardProps {
   phones?: string[];
   email?: string;
   locale: string;
-  /** 楷体类（中文场景下用于公司名等装饰文字） */
+  /** 楷体类（仅用于名片中的中文文字，如职务「创始人兼总裁」；英文部分不套楷体） */
   kaiClass?: string;
 }
 
@@ -57,10 +57,10 @@ export default function BusinessCard({ card, phones, email, locale, kaiClass = "
           <p className="text-xl md:text-2xl font-black tracking-wide leading-none">{card.name}</p>
         )}
         {title && (
-          <p className="mt-1.5 text-primary text-xs font-bold tracking-[0.16em] uppercase">{title}</p>
+          <p className={`mt-1.5 text-primary text-sm font-bold tracking-[0.14em] uppercase ${kaiClass}`}>{title}</p>
         )}
         {card.company && (
-          <p className={`mt-2 text-[#5b6680] text-sm font-semibold ${kaiClass}`}>{card.company}</p>
+          <p className="mt-2 text-[#5b6680] text-sm font-semibold">{card.company}</p>
         )}
         <div className="mt-3 space-y-1 text-sm font-semibold">
           {phones?.map((p) => (

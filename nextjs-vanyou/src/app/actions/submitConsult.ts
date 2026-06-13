@@ -30,12 +30,8 @@ interface ConsultPayload {
   company?: string;
   email: string;
   phone?: string;
-  goal?: string;
   message?: string;
   locale: string;
-  // calculator data（可选，从 BaselineCalculator 展开提交时附带）
-  calculatorInputs?: string;
-  calculatorOutputs?: string;
 }
 
 function escapeHtml(str: string): string {
@@ -79,19 +75,8 @@ async function sendEmailNotification(payload: ConsultPayload): Promise<void> {
   const safeName = escapeHtml(payload.fullName);
   const safeCompany = payload.company ? escapeHtml(payload.company) : "";
   const safeEmail = escapeHtml(payload.email);
-  const safeGoal = payload.goal ? escapeHtml(payload.goal) : "";
   const safeMessage = payload.message ? escapeHtml(payload.message) : "";
   const safePhone = payload.phone ? escapeHtml(payload.phone) : "";
-
-  // calculator 数据附带
-  let calcSection = "";
-  if (payload.calculatorInputs || payload.calculatorOutputs) {
-    calcSection = `
-<p><strong>Calculator Data</strong></p>
-${payload.calculatorInputs ? `<p>Inputs: ${escapeHtml(payload.calculatorInputs)}</p>` : ""}
-${payload.calculatorOutputs ? `<p>Outputs: ${escapeHtml(payload.calculatorOutputs)}</p>` : ""}
-`;
-  }
 
   // 邮件：纯文字+清晰结构，无过度样式
   const html = `
@@ -101,10 +86,8 @@ ${payload.calculatorOutputs ? `<p>Outputs: ${escapeHtml(payload.calculatorOutput
 ${safeCompany ? `<p style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.6;margin:0 0 0.25em 0;">Company: ${safeCompany}</p>` : ""}
 <p style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.6;margin:0 0 0.25em 0;">Email: ${safeEmail}</p>
 ${payload.phone ? `<p style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.6;margin:0 0 0.25em 0;">Phone: ${safePhone}</p>` : ""}
-${safeGoal ? `<p style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.6;margin:0 0 0.25em 0;">Goal: ${safeGoal}</p>` : ""}
 ${safeMessage ? `<p style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.6;margin:0 0 0.25em 0;">Message:</p><p style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.6;margin:0 0 1em 0;">${safeMessage}</p>` : ""}
 <p style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.6;margin:0 0 0.25em 0;">Locale: ${escapeHtml(payload.locale)}</p>
-${calcSection}
 `;
 
   await resend.emails.send({
@@ -124,12 +107,9 @@ export async function submitConsult(
     fullName: formData.get("fullName") as string,
     email: formData.get("email") as string,
     phone: (formData.get("phone") as string) || undefined,
-    goal: (formData.get("goal") as string) || undefined,
     message: (formData.get("message") as string) || undefined,
     company: (formData.get("company") as string) || undefined,
     locale: (formData.get("_locale") as string) || "en",
-    calculatorInputs: (formData.get("_calcInputs") as string) || undefined,
-    calculatorOutputs: (formData.get("_calcOutputs") as string) || undefined,
   };
 
   const error = validate(payload);
