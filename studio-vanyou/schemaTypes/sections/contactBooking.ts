@@ -106,6 +106,13 @@ export default defineType({
           title: 'Business Card (rendered)',
           type: 'object',
           fields: [
+            defineField({
+              name: 'visible',
+              title: 'Show Business Card',
+              description: '是否在联系区块展示名片；关闭则隐藏（默认隐藏）',
+              type: 'boolean',
+              initialValue: false,
+            }),
             defineField({name: 'name', title: 'Name', type: 'string'}),
             defineField({name: 'title', title: 'Title', type: 'localizedString'}),
             defineField({name: 'company', title: 'Company', type: 'string'}),

@@ -61,6 +61,7 @@ export default function ContactBooking({ data, locale, formToken }: ContactBooki
         /** 地图位置改为纯图片占位（不内嵌 iframe / 不吃外链）；留空回退品牌占位图 */
         mapImageUrl?: string;
         card?: {
+          visible?: boolean;
           name?: string;
           title?: LocalizedStr;
           company?: string;
@@ -265,7 +266,7 @@ export default function ContactBooking({ data, locale, formToken }: ContactBooki
 
           {contactInfo && (
             <aside className="rv rv-3 flex flex-col gap-6 text-left">
-              {contactInfo.card && (
+              {contactInfo.card?.visible && (
                 <BusinessCard
                   card={contactInfo.card}
                   phones={contactInfo.phones}

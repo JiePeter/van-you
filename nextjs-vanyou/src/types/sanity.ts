@@ -174,6 +174,8 @@ export interface ContactBookingSection extends SectionBase {
     sideImage?: LocalizedImage;
     /** 页面渲染的"名片"（替代静态名片图） */
     card?: {
+      /** 是否展示名片；默认隐藏（false） */
+      visible?: boolean;
       name?: string;
       title?: LocalizedString;
       company?: string;

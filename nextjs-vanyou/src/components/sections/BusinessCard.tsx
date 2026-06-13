@@ -3,6 +3,8 @@ import { localizedValue, type LocalizedStr } from "@/lib/sanity/localizedValue";
 import { resolveLocalizedImage } from "@/lib/sanity/resolveImage";
 
 interface CardData {
+  /** 是否展示名片；由 ContactBooking 控制渲染，这里仅保留字段定义 */
+  visible?: boolean;
   name?: string;
   title?: LocalizedStr;
   company?: string;

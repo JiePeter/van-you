@@ -24,7 +24,7 @@ const siteSettings: SiteSettings = {
   enabledLocales: ["en", "zh", "zh-Hant", "fr"],
   contact: {
     phone: "+1 778 868 7899",
-    email: "Tony.chiu@vanyoucargo.com",
+    email: "info@vanyoucargo.com",
   },
   socialLinks: [],
   seoDefault: {
@@ -110,10 +110,10 @@ const navigation: Navigation = {
           link: {
             type: "modal",
             modalBody: {
-              en: "VANYOU Cargo Solutions Inc. respects your privacy. This policy explains how we handle the information you provide through this website.\n\nInformation we collect: When you submit the contact form, we collect the name, company, email, phone number, and message you choose to provide. We use this information solely to respond to your inquiry and to provide our services.\n\nHow we use it: We do not sell, rent, or trade your personal information. We share it only with service providers needed to operate our business (such as email delivery) or where required by law.\n\nData retention: We keep your inquiry details only as long as necessary to assist you and to meet our legal and operational obligations.\n\nContact: For any questions about your data, please email Tony.chiu@vanyoucargo.com.",
-              zh: "VANYOU 文友货运有限公司尊重您的隐私。本政策说明我们如何处理您通过本网站提供的信息。\n\n我们收集的信息：当您提交联系表单时，我们会收集您填写的姓名、公司、邮箱、电话及留言。这些信息仅用于回复您的咨询及提供服务。\n\n信息的使用：我们不会出售、出租或交易您的个人信息，仅在运营业务所需（如邮件发送）或法律要求时与相应服务方共享。\n\n信息保留：我们仅在为您服务及履行法律与运营义务所必需的期限内保留您的咨询信息。\n\n联系我们：如对您的数据有任何疑问，请发送邮件至 Tony.chiu@vanyoucargo.com。",
-              zhHant: "VANYOU 文友貨運有限公司尊重您的隱私。本政策說明我們如何處理您透過本網站提供的資訊。\n\n我們收集的資訊：當您提交聯絡表單時，我們會收集您填寫的姓名、公司、電郵、電話及留言。這些資訊僅用於回覆您的諮詢及提供服務。\n\n資訊的使用：我們不會出售、出租或交易您的個人資訊，僅在營運業務所需（如郵件傳送）或法律要求時與相應服務方共享。\n\n資訊保留：我們僅在為您服務及履行法律與營運義務所必需的期限內保留您的諮詢資訊。\n\n聯絡我們：如對您的資料有任何疑問，請發送郵件至 Tony.chiu@vanyoucargo.com。",
-              fr: "VANYOU Cargo Solutions Inc. respecte votre vie privée. La présente politique explique comment nous traitons les informations que vous fournissez via ce site.\n\nInformations collectées : lorsque vous soumettez le formulaire de contact, nous recueillons le nom, l'entreprise, l'adresse e-mail, le numéro de téléphone et le message que vous fournissez. Ces informations servent uniquement à répondre à votre demande et à fournir nos services.\n\nUtilisation : nous ne vendons, ne louons ni n'échangeons vos données personnelles. Nous ne les partageons qu'avec les prestataires nécessaires à notre activité (comme l'envoi d'e-mails) ou lorsque la loi l'exige.\n\nConservation : nous conservons les détails de votre demande uniquement le temps nécessaire pour vous répondre et respecter nos obligations légales et opérationnelles.\n\nContact : pour toute question concernant vos données, écrivez à Tony.chiu@vanyoucargo.com.",
+              en: "VANYOU Cargo Solutions Inc. respects your privacy. This policy explains how we handle the information you provide through this website.\n\nInformation we collect: When you submit the contact form, we collect the name, company, email, phone number, and message you choose to provide. We use this information solely to respond to your inquiry and to provide our services.\n\nHow we use it: We do not sell, rent, or trade your personal information. We share it only with service providers needed to operate our business (such as email delivery) or where required by law.\n\nData retention: We keep your inquiry details only as long as necessary to assist you and to meet our legal and operational obligations.\n\nContact: For any questions about your data, please email info@vanyoucargo.com.",
+              zh: "VANYOU 文友货运有限公司尊重您的隐私。本政策说明我们如何处理您通过本网站提供的信息。\n\n我们收集的信息：当您提交联系表单时，我们会收集您填写的姓名、公司、邮箱、电话及留言。这些信息仅用于回复您的咨询及提供服务。\n\n信息的使用：我们不会出售、出租或交易您的个人信息，仅在运营业务所需（如邮件发送）或法律要求时与相应服务方共享。\n\n信息保留：我们仅在为您服务及履行法律与运营义务所必需的期限内保留您的咨询信息。\n\n联系我们：如对您的数据有任何疑问，请发送邮件至 info@vanyoucargo.com。",
+              zhHant: "VANYOU 文友貨運有限公司尊重您的隱私。本政策說明我們如何處理您透過本網站提供的資訊。\n\n我們收集的資訊：當您提交聯絡表單時，我們會收集您填寫的姓名、公司、電郵、電話及留言。這些資訊僅用於回覆您的諮詢及提供服務。\n\n資訊的使用：我們不會出售、出租或交易您的個人資訊，僅在營運業務所需（如郵件傳送）或法律要求時與相應服務方共享。\n\n資訊保留：我們僅在為您服務及履行法律與營運義務所必需的期限內保留您的諮詢資訊。\n\n聯絡我們：如對您的資料有任何疑問，請發送郵件至 info@vanyoucargo.com。",
+              fr: "VANYOU Cargo Solutions Inc. respecte votre vie privée. La présente politique explique comment nous traitons les informations que vous fournissez via ce site.\n\nInformations collectées : lorsque vous soumettez le formulaire de contact, nous recueillons le nom, l'entreprise, l'adresse e-mail, le numéro de téléphone et le message que vous fournissez. Ces informations servent uniquement à répondre à votre demande et à fournir nos services.\n\nUtilisation : nous ne vendons, ne louons ni n'échangeons vos données personnelles. Nous ne les partageons qu'avec les prestataires nécessaires à notre activité (comme l'envoi d'e-mails) ou lorsque la loi l'exige.\n\nConservation : nous conservons les détails de votre demande uniquement le temps nécessaire pour vous répondre et respecter nos obligations légales et opérationnelles.\n\nContact : pour toute question concernant vos données, écrivez à info@vanyoucargo.com.",
             },
           },
         },
@@ -128,10 +128,10 @@ const navigation: Navigation = {
           link: {
             type: "modal",
             modalBody: {
-              en: "These terms govern your use of the VANYOU Cargo Solutions Inc. website.\n\nUse of this site: The content on this website is provided for general information about our warehousing and logistics services. It does not constitute a binding offer or contract.\n\nService inquiries: Submitting the contact form does not create a service agreement. Any engagement is subject to a separate written agreement and quotation.\n\nIntellectual property: All text, graphics, logos, and images on this site are the property of VANYOU Cargo Solutions Inc. and may not be reproduced without permission.\n\nLimitation of liability: We aim to keep information accurate and current but make no warranties as to its completeness or accuracy, and accept no liability for any loss arising from use of this site.\n\nContact: For questions about these terms, please email Tony.chiu@vanyoucargo.com.",
-              zh: "本条款规范您对 VANYOU 文友货运有限公司网站的使用。\n\n网站使用：本网站内容仅为关于我们仓储与物流服务的一般性信息，不构成具有约束力的要约或合同。\n\n服务咨询：提交联系表单并不构成服务协议。任何合作均以另行签署的书面协议与报价为准。\n\n知识产权：本网站所有文字、图形、标识及图片均为 VANYOU 文友货运有限公司所有，未经许可不得复制使用。\n\n责任限制：我们力求信息准确及时，但不保证其完整性或准确性，且不对因使用本网站而产生的任何损失承担责任。\n\n联系我们：如对本条款有任何疑问，请发送邮件至 Tony.chiu@vanyoucargo.com。",
-              zhHant: "本條款規範您對 VANYOU 文友貨運有限公司網站的使用。\n\n網站使用：本網站內容僅為關於我們倉儲與物流服務的一般性資訊，不構成具有約束力的要約或合約。\n\n服務諮詢：提交聯絡表單並不構成服務協議。任何合作均以另行簽署的書面協議與報價為準。\n\n智慧財產權：本網站所有文字、圖形、標識及圖片均為 VANYOU 文友貨運有限公司所有，未經許可不得複製使用。\n\n責任限制：我們力求資訊準確及時，但不保證其完整性或準確性，且不對因使用本網站而產生的任何損失承擔責任。\n\n聯絡我們：如對本條款有任何疑問，請發送郵件至 Tony.chiu@vanyoucargo.com。",
-              fr: "Les présentes conditions régissent votre utilisation du site de VANYOU Cargo Solutions Inc.\n\nUtilisation du site : le contenu de ce site est fourni à titre d'information générale sur nos services d'entreposage et de logistique. Il ne constitue ni une offre ni un contrat contraignant.\n\nDemandes de service : l'envoi du formulaire de contact ne crée aucun accord de service. Toute collaboration est soumise à un accord écrit et à un devis distincts.\n\nPropriété intellectuelle : tous les textes, graphiques, logos et images de ce site sont la propriété de VANYOU Cargo Solutions Inc. et ne peuvent être reproduits sans autorisation.\n\nLimitation de responsabilité : nous nous efforçons de maintenir des informations exactes et à jour, sans garantie d'exhaustivité ou d'exactitude, et déclinons toute responsabilité en cas de perte liée à l'utilisation de ce site.\n\nContact : pour toute question relative à ces conditions, écrivez à Tony.chiu@vanyoucargo.com.",
+              en: "These terms govern your use of the VANYOU Cargo Solutions Inc. website.\n\nUse of this site: The content on this website is provided for general information about our warehousing and logistics services. It does not constitute a binding offer or contract.\n\nService inquiries: Submitting the contact form does not create a service agreement. Any engagement is subject to a separate written agreement and quotation.\n\nIntellectual property: All text, graphics, logos, and images on this site are the property of VANYOU Cargo Solutions Inc. and may not be reproduced without permission.\n\nLimitation of liability: We aim to keep information accurate and current but make no warranties as to its completeness or accuracy, and accept no liability for any loss arising from use of this site.\n\nContact: For questions about these terms, please email info@vanyoucargo.com.",
+              zh: "本条款规范您对 VANYOU 文友货运有限公司网站的使用。\n\n网站使用：本网站内容仅为关于我们仓储与物流服务的一般性信息，不构成具有约束力的要约或合同。\n\n服务咨询：提交联系表单并不构成服务协议。任何合作均以另行签署的书面协议与报价为准。\n\n知识产权：本网站所有文字、图形、标识及图片均为 VANYOU 文友货运有限公司所有，未经许可不得复制使用。\n\n责任限制：我们力求信息准确及时，但不保证其完整性或准确性，且不对因使用本网站而产生的任何损失承担责任。\n\n联系我们：如对本条款有任何疑问，请发送邮件至 info@vanyoucargo.com。",
+              zhHant: "本條款規範您對 VANYOU 文友貨運有限公司網站的使用。\n\n網站使用：本網站內容僅為關於我們倉儲與物流服務的一般性資訊，不構成具有約束力的要約或合約。\n\n服務諮詢：提交聯絡表單並不構成服務協議。任何合作均以另行簽署的書面協議與報價為準。\n\n智慧財產權：本網站所有文字、圖形、標識及圖片均為 VANYOU 文友貨運有限公司所有，未經許可不得複製使用。\n\n責任限制：我們力求資訊準確及時，但不保證其完整性或準確性，且不對因使用本網站而產生的任何損失承擔責任。\n\n聯絡我們：如對本條款有任何疑問，請發送郵件至 info@vanyoucargo.com。",
+              fr: "Les présentes conditions régissent votre utilisation du site de VANYOU Cargo Solutions Inc.\n\nUtilisation du site : le contenu de ce site est fourni à titre d'information générale sur nos services d'entreposage et de logistique. Il ne constitue ni une offre ni un contrat contraignant.\n\nDemandes de service : l'envoi du formulaire de contact ne crée aucun accord de service. Toute collaboration est soumise à un accord écrit et à un devis distincts.\n\nPropriété intellectuelle : tous les textes, graphiques, logos et images de ce site sont la propriété de VANYOU Cargo Solutions Inc. et ne peuvent être reproduits sans autorisation.\n\nLimitation de responsabilité : nous nous efforçons de maintenir des informations exactes et à jour, sans garantie d'exhaustivité ou d'exactitude, et déclinons toute responsabilité en cas de perte liée à l'utilisation de ce site.\n\nContact : pour toute question relative à ces conditions, écrivez à info@vanyoucargo.com.",
             },
           },
         },
@@ -606,7 +606,7 @@ const landingPage: LandingPage = {
         fr: "Merci — nous avons bien reçu votre demande et vous répondrons sous peu.",
       },
       contactInfo: {
-        email: "Tony.chiu@vanyoucargo.com",
+        email: "info@vanyoucargo.com",
         phones: ["1-672-667-2558", "+1 778 868 7899"],
         areaLabel: {
           en: "Operating Area",
@@ -622,6 +622,7 @@ const landingPage: LandingPage = {
         },
         mapImageUrl: "/brand/vanyou-map-placeholder.svg",
         card: {
+          visible: false,
           name: "Tony Chiu",
           title: {
             en: "Founder & President",
