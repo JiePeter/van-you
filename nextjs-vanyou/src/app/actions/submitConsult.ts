@@ -91,7 +91,10 @@ ${safeMessage ? `<p style="font-family:system-ui,sans-serif;font-size:14px;line-
 `;
 
   await resend.emails.send({
-    from: `${process.env.NEXT_PUBLIC_PROJECT_NAME ?? "VANYOU Cargo Solutions Inc."} <onboarding@resend.dev>`,
+    // 发件人：优先 RESEND_FROM（须为已验证域，如 vanyoucargo.com）；未设则回退 Resend 测试域
+    from:
+      process.env.RESEND_FROM ??
+      `${process.env.NEXT_PUBLIC_PROJECT_NAME ?? "VANYOU Cargo Solutions Inc."} <onboarding@resend.dev>`,
     to: contactTo,
     subject: `New Consult Request (${payload.locale})`,
     replyTo: payload.email,
