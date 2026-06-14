@@ -22,6 +22,7 @@ export default defineType({
       },
       description: '留空则在所有语言版本中显示',
     }),
+    defineField({name: 'kicker', title: 'Kicker (eyebrow)', type: 'localizedString'}),
     defineField({name: 'title', title: 'Title', type: 'localizedString'}),
     defineField({name: 'description', title: 'Description', type: 'localizedText'}),
     defineField({
